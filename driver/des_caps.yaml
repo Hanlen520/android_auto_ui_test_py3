@@ -1,0 +1,7 @@
+"platformName": "Android"
+"platformVersion": "6.0"
+"deviceName": "192.168.56.102:5555"
+"appPackage": "com.gongzhidao.inroad"
+"appActivity": ".loginregister.LoginActivity"
+"unicodeKeyboard": True
+"resetKeyboard": True
