@@ -1,7 +1,7 @@
 import unittest
 
-from common.find_el import Find_el
-from common.login_sys import LoginSystem
+from commonActions.find_el import Find_el
+from commonActions.login_sys import LoginSystem
 from driver.driver import Driver
 from page import shouye
 from page.hse import HSE

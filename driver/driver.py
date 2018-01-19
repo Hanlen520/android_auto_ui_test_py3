@@ -1,18 +1,13 @@
-import os
-
-import yaml
 from selenium import webdriver
+
+from utils import location
+from utils.readYaml import ReadYaml
 
 
 class Driver:
     def __init__(self):
-        #  最好使用相对地址
-        config_file = os.path.dirname(os.getcwd()) + '/driver/des_caps.yaml'
-        f = open(config_file)
-        des_caps = yaml.load(f)
-        # print(des_caps)
+        des_caps = ReadYaml(location.DES_CAPS_FILE_PATH).yaml_data()
         self.driver = webdriver.Remote("http://localhost:4723/wd/hub", des_caps)
-        f.close()
 
     def get_android_driver(self):
         return self.driver

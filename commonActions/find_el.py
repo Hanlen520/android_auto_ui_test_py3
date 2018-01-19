@@ -1,6 +1,6 @@
 from selenium import common
 
-from common.screenshot_after_failure import GetFailureScreenshot as gs
+from commonActions.screenshot_after_failure import GetFailureScreenshot as gs
 
 
 class Find_el(object):

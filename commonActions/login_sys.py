@@ -1,4 +1,4 @@
-from common.find_el import Find_el
+from commonActions.find_el import Find_el
 from page.login_page import login,choose_server,judge_homepage
 from page import shouye
 
