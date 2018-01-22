@@ -1,4 +1,5 @@
 import time
+
 from driver import driver
 
 
@@ -16,4 +17,3 @@ if __name__ == "__main__":
     print(time.strftime('%Y%m%d%H%M', time.localtime()))
     d = driver.Driver().get_android_driver()
     GetFailureScreenshot(d).jietu()
-
