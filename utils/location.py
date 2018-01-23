@@ -18,3 +18,4 @@ UTILS_PATH = os.path.join(ROOT_DIR, 'utils')
 SCREENSHOT_PATH = os.path.join(ROOT_DIR, 'screenshot')
 
 DES_CAPS_FILE_PATH = os.path.join(ROOT_DIR, 'config', 'des_caps.yaml')
+CONF_INI_PATH = os.path.join(ROOT_DIR, 'config', 'conf.ini')
