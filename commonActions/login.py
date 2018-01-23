@@ -1,7 +1,14 @@
 import selenium.common
+from appium.webdriver.common.mobileby import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+from page.login_page import judge_homepage as jh
 
+from commonActions.server_code_xpath import ServerCodeXpath
 from page import shouye
-from page.login_page import login, choose_server, judge_homepage
+from page.login_page import login, judge_homepage
+from utils import location
+from utils.readINI import Readini
 
 
 class LoginSystem:
@@ -17,11 +24,12 @@ class LoginSystem:
         self.d.find_element(*login.password).send_keys(self.pwd)
         self.d.find_element(*login.login_button).click()
 
-    def _input_code(self):  # 输入用户代码，选择服务器(0004为自动化测试的服务器)
-        self.d.find_element(*choose_server.zero).click()
-        self.d.find_element(*choose_server.zero).click()
-        self.d.find_element(*choose_server.zero).click()
-        self.d.find_element(*choose_server.four).click()
+    def _input_code(self):  # 输入用户代码，选择服务器
+        server_code = Readini(location.CONF_INI_PATH).ini_data().get('server', 'code')
+        server_code_xpath = ServerCodeXpath(server_code).getCodeXpath()
+        WebDriverWait(self.d, 20, 0.5).until(ec.visibility_of_element_located(jh.usercode_after_long_time))
+        for i in range(len(server_code_xpath)):
+            self.d.find_element(By.XPATH, server_code_xpath[i]).click()
 
     def login(self):
         try:
