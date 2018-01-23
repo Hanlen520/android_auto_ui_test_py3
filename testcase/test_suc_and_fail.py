@@ -1,6 +1,6 @@
 import unittest
 
-from commonActions.login_sys import LoginSystem
+from commonActions.login import LoginSystem
 from driver.driver import Driver
 from page import shouye
 from page.hse import HSE

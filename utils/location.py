@@ -15,5 +15,6 @@ PAGE_PATH = os.path.join(ROOT_DIR, 'page')
 REPORT_PATH = os.path.join(ROOT_DIR, 'report')
 TESTCASE_PATH = os.path.join(ROOT_DIR, 'testcase')
 UTILS_PATH = os.path.join(ROOT_DIR, 'utils')
+SCREENSHOT_PATH = os.path.join(ROOT_DIR, 'screenshot')
 
 DES_CAPS_FILE_PATH = os.path.join(ROOT_DIR, 'config', 'des_caps.yaml')

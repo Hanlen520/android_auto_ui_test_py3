@@ -30,7 +30,7 @@ class LoginSystem:
                 self._login_steps()
                 return 1
         except selenium.common.exceptions.NoSuchElementException:
-            print(1)
+            print()
         try:
             if self.d.find_element(*login.username) is not None:
                 self.d.find_element(*login.choose_server).click()
@@ -38,16 +38,16 @@ class LoginSystem:
                 self._login_steps()
                 return 2
         except selenium.common.exceptions.NoSuchElementException:
-            print(2)
+            print()
         try:
             if self.d.find_element(*judge_homepage.usercode_after_long_time) is not None:
                 self._input_code()
                 return 3
         except selenium.common.exceptions.NoSuchElementException:
-            print(3)
+            print()
         try:
             if self.d.find_element(*shouye.switch_btn) is not None:
                 print("已登录")
                 return 4
         except selenium.common.exceptions.NoSuchElementException:
-            print(4)
+            print()
