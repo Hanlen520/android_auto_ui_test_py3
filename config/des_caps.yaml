@@ -5,3 +5,4 @@ appPackage: com.gongzhidao.inroad
 appActivity: .loginregister.LoginActivity
 unicodeKeyboard: True
 resetKeyboard: True
+automationName: Uiautomator2

@@ -1,4 +1,5 @@
 from appium import webdriver
+
 from utils import location
 from utils.readYaml import ReadYaml
 
@@ -11,7 +12,3 @@ class Driver:
 
     def get_android_driver(self):
         return self.driver
-
-
-if __name__ == "__main__":
-    Driver().get_android_driver()
