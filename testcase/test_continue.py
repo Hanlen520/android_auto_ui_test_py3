@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from commonActions.login import LoginSystem
 from driver.driver import Driver
 from page import shouye
-from page.hse import HSE, renyuan_Security
+from page.hse import func_homePage, renyuan_Security
 from utils import location
 from utils.readINI import Readini
 
@@ -38,7 +38,7 @@ class TestContinue(unittest.TestCase):
         """搜索查询自定义测试"""
         self.d.find_element(*shouye.switch_btn).click()
         self.d.find_element(*shouye.HSE).click()
-        self.d.find_element(*HSE.renyuan_security).click()
+        self.d.find_element(*func_homePage.renyuan_security).click()
         self.assertEqual(self.d.find_element(*renyuan_Security.zidingyi_search).is_displayed(), True)
 
 
