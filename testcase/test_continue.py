@@ -15,7 +15,7 @@ from utils.readINI import Readini
 
 
 class TestContinue(unittest.TestCase):
-    """不退出driver测试"""
+    """不退出，连续测试"""
     user_info = Readini(location.CONF_INI_PATH).ini_data()
     usr = user_info.get('info', 'username')
     pwd = user_info.get('info', 'password')
@@ -50,4 +50,3 @@ if __name__ == "__main__":
     test_unit.addTest(unittest.makeSuite(TestContinue))
     runner.run(test_unit)
     f.close()
-    # unittest.main()
