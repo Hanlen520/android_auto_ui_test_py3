@@ -1,19 +1,21 @@
+import functools
+import os
 import time
 
-from driver import driver
 from utils import location
 
 
-class GetFailureScreenshot(object):
-    def __init__(self, android_driver):
-        self.d = android_driver
+def capture(func):
+    tamp = time.strftime('%Y%m%d%H%M', time.localtime())
 
-    def capture(self):
-        tamp = time.strftime('%Y%m%d%H%M', time.localtime())
-        filename = location.SCREENSHOT_PATH + '/ %s.png' % tamp
-        self.d.get_screenshot_as_file(filename)
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+        except Exception:
+            os.popen("adb wait-for-device")
+            os.popen("adb shell screencap -p /data/local/tmp/tmp.png")
+            os.popen("adb pull /data/local/tmp/tmp.png %s/%s_%s.png" % (location.SCREENSHOT_PATH, func.__name__, tamp))
+            os.popen("adb shell rm /data/local/tmp/tmp.png")
 
-
-if __name__ == "__main__":
-    d = driver.Driver().get_android_driver()
-    GetFailureScreenshot(d).capture()
+    return wrapper
